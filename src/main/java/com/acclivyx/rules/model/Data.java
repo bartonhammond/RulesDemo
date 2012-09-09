@@ -10,5 +10,7 @@ public class Data {
 	public void setInput(String input) {
 		this.input = input;
 	}
-	
+	public String[] args() {
+		return input.split("\\s+");
+	}
 }

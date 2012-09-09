@@ -1,8 +1,10 @@
 package com.acclivyx.rules.action;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import com.acclivyx.main.RuleRunnerDemo;
 import com.acclivyx.rules.RuleResult;
 import com.acclivyx.rules.model.Data;
 import com.opensymphony.xwork2.ActionSupport;
@@ -11,7 +13,7 @@ public class RuleAction extends ActionSupport {
 
 	private static final long serialVersionUID = -8366209797454396351L;
 
-	private List<RuleResult> results = new ArrayList<RuleResult>();
+	private Collection<RuleResult> results = new ArrayList<RuleResult>();
 
 	private Data data = new Data();
 
@@ -21,19 +23,18 @@ public class RuleAction extends ActionSupport {
 
 	public String add() {
 
-		results.add(new RuleResult(true, "ruleA"));
-		results.add(new RuleResult(true, "ruleB"));
-		results.add(new RuleResult(true, "ruleC"));
+		RuleRunnerDemo demo = new RuleRunnerDemo();
+		results = demo.process(data.args());
 
 		return SUCCESS;
 	}
 
 
-	public List<RuleResult> getResults() {
+	public Collection<RuleResult> getResults() {
 		return results;
 	}
 
-	public void setResults(List<RuleResult> results) {
+	public void setResults(Collection<RuleResult> results) {
 		this.results = results;
 	}
 
