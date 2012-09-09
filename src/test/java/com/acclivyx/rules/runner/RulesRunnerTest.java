@@ -13,6 +13,7 @@ import com.acclivyx.loader.RulesLoader;
 import com.acclivyx.rules.IRule;
 import com.acclivyx.rules.Rule;
 import com.acclivyx.rules.RuleResult;
+import com.acclivyx.rules.args.RuleArgs;
 import com.acclivyx.rules.args.RuleIntegerArgs;
 import com.acclivyx.rules.exceptions.RuleArgsInvalid;
 import com.acclivyx.rules.factory.RulesFactory;
@@ -24,29 +25,42 @@ public class RulesRunnerTest {
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * Mock out all the supporting classes for RuleRunner
+	 * @throws RuleArgsInvalid
+	 */
 	@Test
 	public void test() throws RuleArgsInvalid {
-		RulesLoader rulesLoader = Mockito.mock(RulesLoader.class);
+		//Mock RuleArgs
 		RuleIntegerArgs ruleIntegerArgs = Mockito.mock(RuleIntegerArgs.class);
+		Collection<RuleArgs> ruleArgs = new ArrayList<RuleArgs>();
+		ruleArgs.add(ruleIntegerArgs);
 		
-		RulesFactory rulesFactory = Mockito.mock(RulesFactory.class);
-		
-		Mockito.when(rulesFactory.getRulesIntegerArgs()).thenReturn(ruleIntegerArgs);
-		Mockito.when(rulesFactory.getRulesLoader()).thenReturn(rulesLoader);
-		
-		Collection<IRule> rules = new ArrayList<IRule>();
+		//Mock one Rule	
 		Rule testRule = Mockito.mock(AverageIsGreaterThenRule.class);
+		Mockito.when(testRule.process(ruleIntegerArgs)).thenReturn(new RuleResult(true,"test"));
+
+		//Mock rulesLoader and methods
+		RulesLoader rulesLoader = Mockito.mock(RulesLoader.class);
+		Collection<IRule> rules = new ArrayList<IRule>();
 		rules.add(testRule);
-				
 		Mockito.when(rulesLoader.getRulesForArgs(ruleIntegerArgs)).thenReturn(rules);
 		
-		Mockito.when(testRule.process(ruleIntegerArgs)).thenReturn(new RuleResult(true,"test"));
-	
+		//Mock RulesFactory methods
+		RulesFactory rulesFactory = Mockito.mock(RulesFactory.class);		
+		Mockito.when(rulesFactory.getRulesIntegerArgs()).thenReturn(ruleIntegerArgs);
+		Mockito.when(rulesFactory.getRulesLoader()).thenReturn(rulesLoader);	
+		Mockito.when(rulesFactory.getRuleArgs()).thenReturn(ruleArgs);
+				
+		//Real RulesRunner
 		RulesRunner sut = new RulesRunner(rulesFactory);
-		String foo[] = {"1","2"};
-		Collection<RuleResult> results = sut.runRules(foo);
+
+		//Run test
+		Collection<RuleResult> results = sut.runRules();
 		 
+		//Validate 
 		Assert.assertEquals(1, results.size());
+		
 		RuleResult[] resultsArray = new RuleResult[1];
 		Assert.assertTrue(results.toArray(resultsArray)[0].isSatisified());
 	}

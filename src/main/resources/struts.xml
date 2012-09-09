@@ -12,11 +12,19 @@
 			class="com.acclivyx.rules.action.RuleAction">
 			<result type="freemarker" name="success">/WEB-INF/ftl/index.ftl
 			</result>
+			<!-- when RuleAction.validate is run, if there's an error
+				the result is "input".  
+			 -->
+			<result type="freemarker"  name="input">/WEB-INF/ftl/index.ftl</result>
 		</action>
-		<action name="add" method="add"
+		<action name="runRule" method="runRule"
 			class="com.acclivyx.rules.action.RuleAction">
 			<result type="freemarker" name="success">/WEB-INF/ftl/index.ftl
 			</result>
+			<!-- when RuleAction.validate is run, if there's an error
+				the result is "input".  
+			 -->
+			<result type="freemarker" name="input">/WEB-INF/ftl/index.ftl</result>
 		</action>
 	</package>
 

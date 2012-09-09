@@ -39,7 +39,7 @@ legend { font-weight: bold; }
   
   <fieldset>
   	<legend>Input data</legend>
-    <@s.form action="add" method="post">
+    <@s.form action="runRule" method="post">
         <@s.textfield label="Input integers" name="data.input"/>
         <@s.submit value="Run Rules"/>
     </@s.form>
@@ -50,7 +50,7 @@ legend { font-weight: bold; }
   	<tr>
   		<th>Rule</th>  <th>Status</th>
   	</tr>
-    <#list results as ruleResult>
+    <#list ruleResults as ruleResult>
   	<tr>
   		<td>${ruleResult.name}</td> <td>${ruleResult.message}</td>
   	</tr>

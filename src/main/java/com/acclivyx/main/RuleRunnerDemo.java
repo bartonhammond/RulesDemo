@@ -14,23 +14,24 @@ public class RuleRunnerDemo {
 	public static void main(String[] args) {
 		RuleRunnerDemo ruleRunnerDemo = new RuleRunnerDemo();
 	
-		ruleRunnerDemo.process(args);
+		for (RuleResult result : ruleRunnerDemo.process(new RulesFactory(args))) {
+			Log.message(result.getMessage());
+		}
 	}
 
-	public Collection<RuleResult> process(String[] args) { 
+	public Collection<RuleResult> process(RulesFactory rulesFactory) { 
 		Collection<RuleResult> results = null;
 		
 		boolean allRulesPassed = true;
-		RulesRunner rulesRunner = new RulesRunner(new RulesFactory());
+		RulesRunner rulesRunner = new RulesRunner(rulesFactory);
 		try {
-			results = rulesRunner.runRules(args);
+			results = rulesRunner.runRules();
 			for (RuleResult result : results) {
 				if (!result.isSatisified()) {
 					allRulesPassed = false;
 				}
 			}
 		} catch (RuleArgsInvalid e) {
-			Log.message(e.getMessage());
 			allRulesPassed = false;
 		}
 		if (allRulesPassed) {
