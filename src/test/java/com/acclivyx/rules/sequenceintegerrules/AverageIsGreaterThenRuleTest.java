@@ -6,7 +6,12 @@ import org.junit.Test;
 
 import com.acclivyx.rules.RuleResult;
 import com.acclivyx.rules.args.RuleIntegerArgs;
-
+/**
+ * Test rule AverageIsGreaterThen
+ * 
+ * @author Barton
+ *
+ */
 public class AverageIsGreaterThenRuleTest {
 	AverageIsGreaterThenRule sut;
 	@Before

@@ -8,7 +8,12 @@ import org.junit.Test;
 import com.acclivyx.rules.RuleResult;
 import com.acclivyx.rules.args.RuleArgs;
 import com.acclivyx.rules.args.RuleIntegerArgs;
-
+/**
+ * Test TwoArgsSpanGreaterThenRule rule
+ * 
+ * @author Barton
+ *
+ */
 public class TwoArgsSpanGreaterThenRuleTest {
 	TwoArgsSpanGreaterThenRule sut;
 	@Before

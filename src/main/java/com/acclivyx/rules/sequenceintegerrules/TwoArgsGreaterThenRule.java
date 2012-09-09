@@ -5,8 +5,8 @@ import java.util.Iterator;
 import com.acclivyx.rules.RuleResult;
 import com.acclivyx.rules.SequenceIntegerRule;
 import com.acclivyx.rules.args.RuleIntegerArgs;
-import com.acclivyx.rules.exceptions.RuleArgsInvalid;
-/*
+
+/**
  * If any integer in the sequence is at least 500 greater than the one
  * previous to it in the sequence, the rule is "passed", else it is
  * "failed"..
@@ -18,9 +18,11 @@ public class TwoArgsGreaterThenRule extends SequenceIntegerRule {
 		super("RuleB");
 	}
 
-	@Override
-	public RuleResult process(RuleIntegerArgs args)
-			throws RuleArgsInvalid {
+	/**
+	 * @param specific instance/type of args
+	 * @return results
+	 */
+	public RuleResult process(RuleIntegerArgs args) {
 		
 		Integer first = null;
 		Integer second = null;

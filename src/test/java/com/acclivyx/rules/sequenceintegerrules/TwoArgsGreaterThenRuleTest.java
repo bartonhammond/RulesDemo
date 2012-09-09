@@ -9,7 +9,12 @@ import com.acclivyx.rules.RuleResult;
 import com.acclivyx.rules.args.RuleArgs;
 import com.acclivyx.rules.args.RuleIntegerArgs;
 import com.acclivyx.rules.exceptions.RuleArgsInvalid;
-
+/**
+ * Test TwoArgsGreaterThenRule rule
+ * 
+ * @author Barton
+ *
+ */
 public class TwoArgsGreaterThenRuleTest {
 	TwoArgsGreaterThenRule sut;
 	@Before

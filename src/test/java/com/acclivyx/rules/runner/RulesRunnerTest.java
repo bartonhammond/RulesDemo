@@ -18,7 +18,17 @@ import com.acclivyx.rules.args.RuleIntegerArgs;
 import com.acclivyx.rules.exceptions.RuleArgsInvalid;
 import com.acclivyx.rules.factory.RulesFactory;
 import com.acclivyx.rules.sequenceintegerrules.AverageIsGreaterThenRule;
-
+/**
+ * Test RulesRunner process the rules for the args and returns
+ * the results
+ * 
+ * Note: this uses Mockito to mock out all the objects
+ * required by RulesRunner since all those classes have
+ * already been unit tested.
+ * 
+ * @author Barton
+ *
+ */
 public class RulesRunnerTest {
 	
 	@Before

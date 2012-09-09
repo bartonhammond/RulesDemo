@@ -5,7 +5,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.acclivyx.rules.exceptions.RuleArgsInvalid;
-
+/**
+ * Test the RuleIntegerArgs
+ * 
+ * @author Barton
+ *
+ */
 public class RuleIntegerArgsTest {
 	RuleIntegerArgs sut;
 	@Before

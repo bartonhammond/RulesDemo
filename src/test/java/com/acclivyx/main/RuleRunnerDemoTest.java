@@ -9,7 +9,13 @@ import org.junit.Test;
 
 import com.acclivyx.rules.RuleResult;
 import com.acclivyx.rules.factory.RulesFactory;
-
+/**
+ * More of an integration test.
+ * 
+ *	
+ * @author Barton
+ *
+ */
 public class RuleRunnerDemoTest {
 	RuleRunnerDemo sut;
 	@Before
@@ -47,6 +53,15 @@ public class RuleRunnerDemoTest {
 		Assert.assertEquals(3, results.size());
 		Assert.assertFalse(isRuleSatisfied(results,"RuleC"));
 	}
+	/**
+	 * Simple method to determine if a result for a specific
+	 * rule failed
+	 * 
+	 * @param results
+	 * @param name
+	 * @return the status of result 
+	 * @throws Exception
+	 */
 	private boolean isRuleSatisfied(Collection<RuleResult> results,
 			String name) throws Exception {
 		for(RuleResult result: results) {

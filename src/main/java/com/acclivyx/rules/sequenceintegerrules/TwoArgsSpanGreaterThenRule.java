@@ -6,8 +6,8 @@ import java.util.Iterator;
 import com.acclivyx.rules.RuleResult;
 import com.acclivyx.rules.SequenceIntegerRule;
 import com.acclivyx.rules.args.RuleIntegerArgs;
-import com.acclivyx.rules.exceptions.RuleArgsInvalid;
-/*
+
+/**
  * If any two sequential integers in the sequence add up to 1000 or greater,
  * the rule is "passed". If not, the rule is "failed".
  */
@@ -18,9 +18,11 @@ public class TwoArgsSpanGreaterThenRule extends SequenceIntegerRule{
 		super("RuleA");
 	}
 
-	@Override
-	public RuleResult process(RuleIntegerArgs args)
-			throws RuleArgsInvalid {
+	/**
+	 * @param args of specific type
+	 * @return results
+	 */
+	public RuleResult process(RuleIntegerArgs args) {
 		Integer first = null;
 		Integer second = null;
 		

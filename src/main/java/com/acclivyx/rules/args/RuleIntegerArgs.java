@@ -18,7 +18,7 @@ public class RuleIntegerArgs implements RuleArgs{
 	public RuleIntegerArgs() {
 		
 	}
-	/*
+	/**
 	 *
 	 * Specific rules require that all input are integers
 	 *

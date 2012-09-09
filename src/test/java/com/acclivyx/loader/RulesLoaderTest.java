@@ -7,7 +7,13 @@ import org.junit.Test;
 import com.acclivyx.rules.args.RuleArgs;
 import com.acclivyx.rules.args.RuleIntegerArgs;
 import com.acclivyx.rules.exceptions.RuleArgsInvalid;
-
+/**
+ * Confirm that the loader loads 3 rules when the types of args
+ * are all integers
+ * 
+ * @author Barton
+ *
+ */
 public class RulesLoaderTest {
 	RulesLoader sut;
 	@Before

@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import com.acclivyx.rules.RuleResult;
 import com.acclivyx.rules.SequenceIntegerRule;
 import com.acclivyx.rules.args.RuleIntegerArgs;
-import com.acclivyx.rules.exceptions.RuleArgsInvalid;
+
 
 /**
  * If the average of all the integers in the sequence is 500 or greater, the
@@ -17,9 +17,12 @@ public class AverageIsGreaterThenRule extends SequenceIntegerRule{
 	public AverageIsGreaterThenRule() {
 		super("RuleC");
 	}
-
+	/**
+	 * @param args - specific instance/type of args to be processed
+	 * @return results of processing
+	 */
 	@Override
-	public RuleResult process(RuleIntegerArgs args) throws RuleArgsInvalid  {
+	public RuleResult process(RuleIntegerArgs args)   {
 		BigInteger bigInteger = BigInteger.valueOf(0);
 		
 		for (Integer arg : args.getArgs()) {

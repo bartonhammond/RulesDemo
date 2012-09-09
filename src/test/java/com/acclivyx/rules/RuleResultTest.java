@@ -3,6 +3,12 @@ package com.acclivyx.rules;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Test the RulesResult 
+ * 
+ * @author Barton
+ *
+ */
 public class RuleResultTest {
 
 	@Test

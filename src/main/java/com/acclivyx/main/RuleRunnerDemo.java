@@ -8,9 +8,23 @@ import com.acclivyx.rules.exceptions.RuleArgsInvalid;
 import com.acclivyx.rules.factory.RulesFactory;
 import com.acclivyx.rules.runner.RulesRunner;
 import com.acclivyx.util.Log;
-
+/**
+ * Main class that can be run from the command line.
+ * 
+ * It is also used by the UI to  process all the rules
+ * for the given arguments.
+ * 
+ * 
+ * @author Barton
+ *
+ */
 public class RuleRunnerDemo {
-
+	/**
+	 * Process the arguments from the command line.
+	 * Log to results.
+	 * 
+	 * @param args - command line arguments
+	 */
 	public static void main(String[] args) {
 		RuleRunnerDemo ruleRunnerDemo = new RuleRunnerDemo();
 	
@@ -18,7 +32,15 @@ public class RuleRunnerDemo {
 			Log.message(result.getMessage());
 		}
 	}
-
+	/**
+	 * Process the results of running the rules and return a collection
+	 * of results that include whether or not all the rules passed.
+	 * This method does not specifically know what the arguments are
+	 * nor which rules are being processed.
+	 * 
+	 * @param rulesFactory 
+	 * @return collection of results
+	 */
 	public Collection<RuleResult> process(RulesFactory rulesFactory) { 
 		Collection<RuleResult> results = null;
 		
