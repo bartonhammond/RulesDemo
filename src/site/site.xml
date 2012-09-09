@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/DECORATION/1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd"
+   name="SecureLink Rules Demo">
+  <body>
+  	 <links>
+        <item name="Secure Link" href="http://securelink.com"/>
+
+    </links>
+  
+    <menu name="Requirements">
+    <item name="Docs" href="index.html"/>
+    </menu>
+    <menu name="Developer">
+    	<item name="Info" href="team-list.html"/>
+    </menu>
+     <menu name="Source">
+    	<item name="Code" href="source-repository.html"/>
+    </menu>
+    <menu name="Demo">
+       <item name="Rules" href="../RulesDemo"/>
+	</menu>
+   <menu name="Reports">
+       <item name="Coverage" href="jacoco/index.html"/>
+	</menu>
+	 <menu name="Java">
+       <item name="Docs" href="apidocs/index.html"/>
+	</menu>
+  <menu name="Dependancies">
+      <item name="Info" href="dependencies.html"/>
+      </menu>
+  </body>
+
+</project>
