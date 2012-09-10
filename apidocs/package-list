@@ -1,0 +1,12 @@
+com.acclivyx.loader
+com.acclivyx.main
+com.acclivyx.rules
+com.acclivyx.rules.action
+com.acclivyx.rules.args
+com.acclivyx.rules.exceptions
+com.acclivyx.rules.factory
+com.acclivyx.rules.model
+com.acclivyx.rules.runner
+com.acclivyx.rules.sequenceintegerrules
+com.acclivyx.util
+com.acclivyx.webservice

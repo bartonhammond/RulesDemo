@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RulesService.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RulesDemo</a> &gt; <a href="index.html" class="el_package">com.acclivyx.webservice</a> &gt; <span class="el_source">RulesService.java</span></div><h1>RulesService.java</h1><pre class="source lang-java linenums">package com.acclivyx.webservice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+
+import com.acclivyx.main.RuleRunnerDemo;
+import com.acclivyx.rules.RuleResult;
+import com.acclivyx.rules.exceptions.RuleArgsInvalid;
+import com.acclivyx.rules.factory.RulesFactory;
+import com.acclivyx.rules.model.Data;
+
+@Path(&quot;/rules&quot;)
+<span class="nc" id="L18">public class RulesService {</span>
+
+	@GET
+	@Path(&quot;/json/{input}&quot;)
+	@Produces(&quot;application/json&quot;)
+	public List&lt;RuleResult&gt; runRule(@PathParam(&quot;input&quot;) String input)
+			throws RuleArgsInvalid {
+<span class="nc" id="L25">		List&lt;RuleResult&gt; results = new ArrayList&lt;RuleResult&gt;();</span>
+
+<span class="nc" id="L27">		Data data = new Data();</span>
+<span class="nc" id="L28">		data.setInput(input);</span>
+
+<span class="nc" id="L30">		RulesFactory rulesFactory = new RulesFactory(data.args());</span>
+
+<span class="nc" id="L32">		rulesFactory.getRuleArgs();</span>
+<span class="nc" id="L33">		RuleRunnerDemo demo = new RuleRunnerDemo();</span>
+
+<span class="nc" id="L35">		results = new ArrayList&lt;RuleResult&gt;(demo.process(rulesFactory));</span>
+
+<span class="nc" id="L37">		return results;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.5.10.201208310627</span></div></body></html>

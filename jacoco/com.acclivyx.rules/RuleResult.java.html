@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RuleResult.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RulesDemo</a> &gt; <a href="index.html" class="el_package">com.acclivyx.rules</a> &gt; <span class="el_source">RuleResult.java</span></div><h1>RuleResult.java</h1><pre class="source lang-java linenums">package com.acclivyx.rules;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ * The result of applying the rule
+ * 
+ * Note that it is immutable to avoid modification after the 
+ * rule has run.
+ * 
+ * This object is returned by the RulesService class 
+ * and requires a default no arg constructor
+ * @see com.acclivyx.webservice.RulesService
+ * 
+ * @author Barton
+ *
+ */
+@XmlRootElement(name = &quot;result&quot;)
+public class RuleResult {
+
+	private boolean isSatisfied;
+	private String name;
+<span class="nc" id="L24">	public RuleResult() {}</span>
+	/**
+	 * 
+	 * @param isSatisfied - did the rule pass?
+	 * @param name - of rule 
+	 */
+<span class="fc" id="L30">	public RuleResult(boolean isSatisfied, String name) {</span>
+<span class="fc" id="L31">		this.isSatisfied = isSatisfied;</span>
+<span class="fc" id="L32">		this.name = name;</span>
+<span class="fc" id="L33">	}</span>
+	@XmlElement
+	public boolean isSatisfied() {
+<span class="fc" id="L36">		return isSatisfied;</span>
+	}
+	@XmlElement
+	public String getName() {
+<span class="fc" id="L40">		return name;</span>
+	}
+	public String getMessage() {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">		return name + (isSatisfied ? &quot; passed &quot; : &quot; failed&quot;);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.5.10.201208310627</span></div></body></html>

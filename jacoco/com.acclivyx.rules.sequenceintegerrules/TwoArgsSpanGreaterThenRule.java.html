@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TwoArgsSpanGreaterThenRule.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RulesDemo</a> &gt; <a href="index.html" class="el_package">com.acclivyx.rules.sequenceintegerrules</a> &gt; <span class="el_source">TwoArgsSpanGreaterThenRule.java</span></div><h1>TwoArgsSpanGreaterThenRule.java</h1><pre class="source lang-java linenums">package com.acclivyx.rules.sequenceintegerrules;
+
+import java.math.BigInteger;
+import java.util.Iterator;
+
+import com.acclivyx.rules.RuleResult;
+import com.acclivyx.rules.SequenceIntegerRule;
+import com.acclivyx.rules.args.RuleIntegerArgs;
+
+/**
+ * If any two sequential integers in the sequence add up to 1000 or greater,
+ * the rule is &quot;passed&quot;. If not, the rule is &quot;failed&quot;.
+ */
+public class TwoArgsSpanGreaterThenRule extends SequenceIntegerRule{
+<span class="fc" id="L15">	private final BigInteger MIN = BigInteger.valueOf(1000);</span>
+
+	public TwoArgsSpanGreaterThenRule() {
+<span class="fc" id="L18">		super(&quot;RuleA&quot;);</span>
+<span class="fc" id="L19">	}</span>
+
+	/**
+	 * @param args of specific type
+	 * @return results
+	 */
+	public RuleResult process(RuleIntegerArgs args) {
+<span class="fc" id="L26">		Integer first = null;</span>
+<span class="fc" id="L27">		Integer second = null;</span>
+		
+<span class="fc bfc" id="L29" title="All 2 branches covered.">		for (Iterator&lt;Integer&gt; iter = args.getArgs().iterator(); iter.hasNext();) {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">			if (first == null) {</span>
+<span class="fc" id="L31">				first = second = iter.next();</span>
+<span class="fc" id="L32">				continue;</span>
+			}
+<span class="fc" id="L34">			first = second;</span>
+<span class="fc" id="L35">			second = iter.next();</span>
+<span class="fc" id="L36">			BigInteger result = BigInteger.valueOf(first);</span>
+<span class="fc" id="L37">			result = result.add(result);</span>
+			
+<span class="fc bfc" id="L39" title="All 2 branches covered.">			if (result.compareTo(MIN) &gt;= 0) {</span>
+<span class="fc" id="L40">				return new RuleResult(true,this.name);</span>
+			}
+<span class="fc" id="L42">		}</span>
+<span class="fc" id="L43">		return new RuleResult(false,this.name);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.5.10.201208310627</span></div></body></html>

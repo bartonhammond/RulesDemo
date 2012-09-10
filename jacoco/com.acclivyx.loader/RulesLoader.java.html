@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RulesLoader.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RulesDemo</a> &gt; <a href="index.html" class="el_package">com.acclivyx.loader</a> &gt; <span class="el_source">RulesLoader.java</span></div><h1>RulesLoader.java</h1><pre class="source lang-java linenums">package com.acclivyx.loader;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import com.acclivyx.rules.IRule;
+import com.acclivyx.rules.args.RuleArgs;
+import com.acclivyx.rules.args.RuleIntegerArgs;
+import com.acclivyx.rules.sequenceintegerrules.AverageIsGreaterThenRule;
+import com.acclivyx.rules.sequenceintegerrules.TwoArgsGreaterThenRule;
+import com.acclivyx.rules.sequenceintegerrules.TwoArgsSpanGreaterThenRule;
+
+/**
+ * Loads appropriate Rules for the type of Arguments to be processed.
+ * 
+ * As new types of Arguments are added to the system, there would be associated
+ * new Rules. The Loader needs to be updated to associate the Arguments to the
+ * Rules. Certain Rules are only applicable to specific Arguments.
+ * 
+ * If this were to grow the implementation could be changed to dynamically find
+ * all the classes on the classpath that implement the Rule and a verifcation
+ * could be introduced to determine if the Rule supports the Argument
+ * dynamically.
+ * 
+ * But this exercise, this implementation is sufficient.
+ * 
+ * @author Barton
+ * 
+ */
+
+<span class="fc" id="L31">public class RulesLoader {</span>
+	/**
+	 * Determine which instance of the RuleArgs is
+	 * passed in and associated the Rules that 
+	 * support them.
+	 * 
+	 * @param args arguments 
+	 * @return
+	 */
+	public Collection&lt;IRule&gt; getRulesForArgs(RuleArgs args) {
+<span class="fc" id="L41">		Collection&lt;IRule&gt; rules = new ArrayList&lt;IRule&gt;();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">		if (args instanceof RuleIntegerArgs) {</span>
+<span class="fc" id="L43">			rules.add(new TwoArgsGreaterThenRule());</span>
+<span class="fc" id="L44">			rules.add(new TwoArgsSpanGreaterThenRule());</span>
+<span class="fc" id="L45">			rules.add(new AverageIsGreaterThenRule());</span>
+		}
+<span class="fc" id="L47">		return rules;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.5.10.201208310627</span></div></body></html>

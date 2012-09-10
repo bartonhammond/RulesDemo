@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AverageIsGreaterThenRule.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RulesDemo</a> &gt; <a href="index.html" class="el_package">com.acclivyx.rules.sequenceintegerrules</a> &gt; <span class="el_source">AverageIsGreaterThenRule.java</span></div><h1>AverageIsGreaterThenRule.java</h1><pre class="source lang-java linenums">package com.acclivyx.rules.sequenceintegerrules;
+
+import java.math.BigInteger;
+
+import com.acclivyx.rules.RuleResult;
+import com.acclivyx.rules.SequenceIntegerRule;
+import com.acclivyx.rules.args.RuleIntegerArgs;
+
+
+/**
+ * If the average of all the integers in the sequence is 500 or greater, the
+ * rule is &quot;passed&quot;, else it is &quot;failed&quot;.
+ * @throws RuleArgsInvalid 
+ */
+public class AverageIsGreaterThenRule extends SequenceIntegerRule{
+<span class="fc" id="L16">	private final BigInteger MIN = BigInteger.valueOf(500);</span>
+	public AverageIsGreaterThenRule() {
+<span class="fc" id="L18">		super(&quot;RuleC&quot;);</span>
+<span class="fc" id="L19">	}</span>
+	/**
+	 * @param args - specific instance/type of args to be processed
+	 * @return results of processing
+	 */
+	@Override
+	public RuleResult process(RuleIntegerArgs args)   {
+<span class="fc" id="L26">		BigInteger bigInteger = BigInteger.valueOf(0);</span>
+		
+<span class="fc bfc" id="L28" title="All 2 branches covered.">		for (Integer arg : args.getArgs()) {</span>
+<span class="fc" id="L29">			bigInteger = bigInteger.add(BigInteger.valueOf(arg));</span>
+		}
+<span class="fc" id="L31">		BigInteger average = bigInteger.divide(BigInteger.valueOf(args.getArgs().size()));</span>
+		
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		return new RuleResult(average.compareTo(MIN) &gt;= 0,</span>
+				this.name);
+	}
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.5.10.201208310627</span></div></body></html>

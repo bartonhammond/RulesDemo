@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RuleAction.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RulesDemo</a> &gt; <a href="index.html" class="el_package">com.acclivyx.rules.action</a> &gt; <span class="el_source">RuleAction.java</span></div><h1>RuleAction.java</h1><pre class="source lang-java linenums">package com.acclivyx.rules.action;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import com.acclivyx.main.RuleRunnerDemo;
+import com.acclivyx.rules.RuleResult;
+import com.acclivyx.rules.exceptions.RuleArgsInvalid;
+import com.acclivyx.rules.factory.RulesFactory;
+import com.acclivyx.rules.model.Data;
+import com.opensymphony.xwork2.ActionSupport;
+/**
+ * Struts 2 Action class that is defined in struts.xml
+ * 
+ * @author Barton
+ *
+ */
+<span class="nc" id="L18">public class RuleAction extends ActionSupport {</span>
+
+	private static final long serialVersionUID = -8366209797454396351L;
+
+	//Collection of results
+<span class="nc" id="L23">	private Collection&lt;RuleResult&gt; results = new ArrayList&lt;RuleResult&gt;();</span>
+	
+	//Factory for required objects
+	private RulesFactory rulesFactory;
+
+	//Form input
+<span class="nc" id="L29">	private Data data = new Data();</span>
+
+	/**
+	 * Action that forwards to display list.  the results are processed
+	 * @return indication of success
+	 */
+	public String list() {
+<span class="nc" id="L36">		return SUCCESS;</span>
+	}
+	/**
+	 * 
+	 * @return indication of success
+	 */
+	public String runRule() {
+<span class="nc" id="L43">		RuleRunnerDemo demo = new RuleRunnerDemo();</span>
+<span class="nc" id="L44">		results = demo.process(rulesFactory);</span>
+
+<span class="nc" id="L46">		return SUCCESS;</span>
+	}
+	/**
+	 * Called by framework to validate form entry fields before
+	 * running Rule
+	 */
+	public void validate() {
+	
+<span class="nc" id="L54">		rulesFactory = new RulesFactory(data.args());</span>
+		try {
+<span class="nc" id="L56">			rulesFactory.getRuleArgs();</span>
+<span class="nc" id="L57">		} catch (RuleArgsInvalid invalid) {</span>
+<span class="nc" id="L58">			addFieldError( &quot;data.input&quot;, invalid.getMessage() );</span>
+<span class="nc" id="L59">		}</span>
+		
+<span class="nc" id="L61">	}</span>
+	/**
+	 * Results of processing the rules 
+	 * @return
+	 */
+	public Collection&lt;RuleResult&gt; getRuleResults() {
+<span class="nc" id="L67">		return results;</span>
+	}
+
+	public void setRuleResults(Collection&lt;RuleResult&gt; results) {
+<span class="nc" id="L71">		this.results = results;</span>
+<span class="nc" id="L72">	}</span>
+	/**
+	 * The data this is modified via the form
+	 * @return
+	 */
+	public Data getData() {
+<span class="nc" id="L78">		return data;</span>
+	}
+
+	public void setData(Data data) {
+<span class="nc" id="L82">		this.data = data;</span>
+<span class="nc" id="L83">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.5.10.201208310627</span></div></body></html>

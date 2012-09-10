@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RulesFactory.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RulesDemo</a> &gt; <a href="index.html" class="el_package">com.acclivyx.rules.factory</a> &gt; <span class="el_source">RulesFactory.java</span></div><h1>RulesFactory.java</h1><pre class="source lang-java linenums">package com.acclivyx.rules.factory;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import com.acclivyx.loader.RulesLoader;
+import com.acclivyx.rules.args.RuleArgs;
+import com.acclivyx.rules.args.RuleIntegerArgs;
+import com.acclivyx.rules.exceptions.RuleArgsInvalid;
+/**
+ * Simple factory to produce required classes.
+ * Would rather use Spring or Guice - but this
+ * carries the mail for now. 
+ * 
+ * The value of having the Factory is more apparent
+ * when doing the test classes as the methods can 
+ * be mocked out. 
+ * 
+ * @author Barton
+ *
+ */
+public class RulesFactory {
+	private String[] args; 
+	private Collection&lt;RuleArgs&gt; ruleArgs;
+	
+	/**
+	 * 
+	 * @param args - arguments provided to the specific rules
+	 * 
+	 */
+<span class="fc" id="L31">	public RulesFactory(String[] args) {</span>
+<span class="fc" id="L32">		this.args = args;</span>
+<span class="fc" id="L33">	}</span>
+	/**
+	 * 
+	 * @return RulesLoader
+	 */
+	public RulesLoader getRulesLoader() {
+<span class="fc" id="L39">		return new RulesLoader();</span>
+	}
+	/**
+	 * 
+	 * @return RuleIntegerArgs
+	 */
+	public  RuleIntegerArgs getRulesIntegerArgs() {
+<span class="fc" id="L46">		return new RuleIntegerArgs();</span>
+	}
+	/**
+	 * Create collection of valid arguments
+	 * Uses the constructor args to initialize the RuleArgs
+	 * @return the Collection of valid arguments
+	 * @throws RuleArgsInvalid if for any type of 
+	 *         RuleArgs the conversion fails
+	 */
+	public Collection&lt;RuleArgs&gt; getRuleArgs() throws RuleArgsInvalid {
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">		if (ruleArgs != null) {</span>
+<span class="nc" id="L57">			return ruleArgs;</span>
+		}
+<span class="fc" id="L59">		ruleArgs = new ArrayList&lt;RuleArgs&gt;();</span>
+<span class="fc" id="L60">		ruleArgs.add(getRulesIntegerArgs());</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">		for(RuleArgs ruleArg: ruleArgs) {</span>
+<span class="fc" id="L62">			ruleArg.setArgs(args);</span>
+		}
+<span class="fc" id="L64">		return ruleArgs;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.5.10.201208310627</span></div></body></html>

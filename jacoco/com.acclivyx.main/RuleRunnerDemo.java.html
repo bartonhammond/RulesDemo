@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RuleRunnerDemo.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="right"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">RulesDemo</a> &gt; <a href="index.html" class="el_package">com.acclivyx.main</a> &gt; <span class="el_source">RuleRunnerDemo.java</span></div><h1>RuleRunnerDemo.java</h1><pre class="source lang-java linenums">package com.acclivyx.main;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import com.acclivyx.rules.RuleResult;
+import com.acclivyx.rules.exceptions.RuleArgsInvalid;
+import com.acclivyx.rules.factory.RulesFactory;
+import com.acclivyx.rules.runner.RulesRunner;
+import com.acclivyx.util.Log;
+/**
+ * Main class that can be run from the command line.
+ * 
+ * It is also used by the UI to  process all the rules
+ * for the given arguments.
+ * 
+ * 
+ * @author Barton
+ *
+ */
+<span class="fc" id="L21">public class RuleRunnerDemo {</span>
+	/**
+	 * Process the arguments from the command line.
+	 * Log to results.
+	 * 
+	 * @param args - command line arguments
+	 */
+	public static void main(String[] args) {
+<span class="nc" id="L29">		RuleRunnerDemo ruleRunnerDemo = new RuleRunnerDemo();</span>
+	
+<span class="nc bnc" id="L31" title="All 2 branches missed.">		for (RuleResult result : ruleRunnerDemo.process(new RulesFactory(args))) {</span>
+<span class="nc" id="L32">			Log.message(result.getMessage());</span>
+		}
+<span class="nc" id="L34">	}</span>
+	/**
+	 * Process the results of running the rules and return a collection
+	 * of results that include whether or not all the rules passed.
+	 * This method does not specifically know what the arguments are
+	 * nor which rules are being processed.
+	 * 
+	 * @param rulesFactory 
+	 * @return collection of results
+	 */
+	public Collection&lt;RuleResult&gt; process(RulesFactory rulesFactory) { 
+<span class="fc" id="L45">		Collection&lt;RuleResult&gt; results = null;</span>
+		
+<span class="fc" id="L47">		boolean allRulesPassed = true;</span>
+<span class="fc" id="L48">		RulesRunner rulesRunner = new RulesRunner(rulesFactory);</span>
+		try {
+<span class="fc" id="L50">			results = rulesRunner.runRules();</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">			for (RuleResult result : results) {</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">				if (!result.isSatisfied()) {</span>
+<span class="fc" id="L53">					allRulesPassed = false;</span>
+				}
+			}
+<span class="nc" id="L56">		} catch (RuleArgsInvalid e) {</span>
+<span class="nc" id="L57">			allRulesPassed = false;</span>
+<span class="fc" id="L58">		}</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">		if (allRulesPassed) {</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">			if (results == null) {</span>
+<span class="nc" id="L61">				results = new ArrayList&lt;RuleResult&gt;();</span>
+			}
+<span class="fc" id="L63">			results.add(new RuleResult(true,&quot;All rules&quot;));</span>
+		}
+<span class="fc" id="L65">		return results;</span>
+	}
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.5.10.201208310627</span></div></body></html>

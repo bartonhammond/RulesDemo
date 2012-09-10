@@ -12,7 +12,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Rules Demo - Introduction</title>
+    <title>Rules Demo - Team list</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -71,15 +71,15 @@
             <ul>
               
     <li class="none">
-              <strong>Docs</strong>
-        </li>
+                    <a href="index.html">Docs</a>
+          </li>
           </ul>
               <h5>Developer</h5>
             <ul>
               
     <li class="none">
-                    <a href="team-list.html">Info</a>
-          </li>
+              <strong>Info</strong>
+        </li>
           </ul>
               <h5>Source</h5>
             <ul>
@@ -138,34 +138,50 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>Interview Homework</h2>
-<p>Requirement for interview</p>
-<div class="section"><h3>Business requirements</h3>
-<p>Rule Runner Demo</p>
-<p>You are being asked to code a simple rules engine demo that performs the following tasks:</p>
-<p>Accept a series of integers as command-line arguments Run a set of rules against the integers For each rule, output to standard out a passed or failed message If all rules pass, output to standard out a message saying all rules passed</p>
-<p>Eventually, this system is planned to evolve to more complex rules, but the initial set of rules are very simple:</p>
-<p>Rule A : If any two sequential integers in the sequence add up to 1000 or greater, the rule is &quot;passed&quot;. If not, the rule is &quot;failed&quot;.</p>
-<p>Rule B : If any integer in the sequence is at least 500 greater than the one previous to it in the sequence, the rule is &quot;passed&quot;, else it is &quot;failed&quot;.</p>
-<p>Rule C : If the average of all the integers in the sequence is 500 or greater, the rule is &quot;passed&quot;, else it is &quot;failed&quot;.</p>
-<p>Notes:</p>
-<p>You will implement these three rules as part of this demo, but keep in mind that additional rules may be added later. You may accept it as a given that rules do not reference each other, each rule stands on its own. The order that the rules run in is unimportant as long as all of them run.</p>
-<p>For the purposes of this demo, you don't need to provide any namespace for your classes, they may all go in the default package.</p>
-<p>No unit tests are required for this demo.</p>
-<p>You may use any IDE, editor, compiler or combination you like, but all code must be in Java (Java 1.4 or later). Feel free to use any JavaDocs, web resources, books or other tools or information sources that will help you complete the task more quickly.</p>
-<p>Example use of RuleRunner:</p>
-<p>user$ java RuleRunner 100 50 30 50 60 20 5000</p>
-<p>Rule RuleC passed.</p>
-<p>Rule RuleB passed.</p>
-<p>Rule RuleA passed.</p>
-<p>ALL rules passed.</p>
-<p>user$:</p>
-<p>Hints:</p>
-<p>If you need more than a total of 300 lines of code to implement this, you are thinking too hard or going overboard in some fashion. Likewise, if you need fewer than 50 lines you may not be using best practices. Don't, for example, go nuts and implement a Domain Specific Language for the rules. Keep it simple and direct, while following best practices as you see them.</p>
-<p>Good Luck!</p>
+        <div class="section"><h2>The Team</h2>
+<p>A successful project requires many people to play many roles. Some members write code or documentation, while others are valuable as testers, submitting patches and suggestions.</p>
+<p>The team is comprised of Members and Contributors. Members have direct access to the source of a project and actively evolve the code-base. Contributors improve the project through submission of patches and suggestions to the Members. The number of Contributors to the project is unbounded. Get involved today. All contributions to the project are greatly appreciated.</p>
+<div class="section"><h3>Members</h3>
+<p>The following is a list of developers with commit privileges that have directly contributed to the project in one way or another.</p>
+<table class="bodyTable"><tr class="a"><th>Id</th>
+<th>Name</th>
+<th>Email</th>
+<th>Organization</th>
+<th>Roles</th>
+<th>Time Zone</th>
+<th>Actual Time (GMT)</th>
+</tr>
+<tr class="b"><td><a name="barton"></a>barton</td>
+<td>Barton Hammond</td>
+<td><a class="externalLink" href="mailto:barton@acclivyx.com">barton@acclivyx.com</a></td>
+<td>Acclivyx.com</td>
+<td>Architect</td>
+<td>-5</td>
+<td><span id="developer-0">-5</span></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>Contributors</h3>
+<p>There are no contributors listed for this project. Please check back again later.</p>
 </div>
 </div>
+<script type="text/javascript">
+function offsetDate(id, offset) {
+    var now = new Date();
+    var nowTime = now.getTime();
+    var localOffset = now.getTimezoneOffset();
+    var developerTime = nowTime + ( offset * 60 * 60 * 1000 )+ ( localOffset * 60 * 1000 );
+    var developerDate = new Date(developerTime);
 
+    document.getElementById(id).innerHTML = developerDate;
+}
+
+function init(){
+    offsetDate('developer-0', '-5');
+}
+
+window.onLoad = init();
+</script>
       </div>
     </div>
     <div class="clear">
