@@ -49,7 +49,7 @@ public class RuleRunnerDemo {
 		try {
 			results = rulesRunner.runRules();
 			for (RuleResult result : results) {
-				if (!result.isSatisified()) {
+				if (!result.isSatisfied()) {
 					allRulesPassed = false;
 				}
 			}

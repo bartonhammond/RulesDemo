@@ -24,7 +24,7 @@ public class AverageIsGreaterThenRuleTest {
 		String foo[] = {"500","500"};
 		args.setArgs(foo);
 		RuleResult result = sut.process(args);
-		Assert.assertTrue(result.isSatisified());
+		Assert.assertTrue(result.isSatisfied());
 		
 	}
 	@Test
@@ -33,7 +33,7 @@ public class AverageIsGreaterThenRuleTest {
 		String foo[] = {"499","500"};
 		args.setArgs(foo);
 		RuleResult result = sut.process(args);
-		Assert.assertFalse(result.isSatisified());
+		Assert.assertFalse(result.isSatisfied());
 		
 	}
 	@Test
@@ -42,5 +42,5 @@ public class AverageIsGreaterThenRuleTest {
 		String foo[] = {Integer.toString(Integer.MAX_VALUE),Integer.toString(Integer.MAX_VALUE)};
 		args.setArgs(foo);
 		RuleResult result = sut.process(args);
-		Assert.assertTrue(result.isSatisified());
+		Assert.assertTrue(result.isSatisfied());
 	}}

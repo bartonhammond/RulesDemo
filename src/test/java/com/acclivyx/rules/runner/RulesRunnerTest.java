@@ -72,7 +72,7 @@ public class RulesRunnerTest {
 		Assert.assertEquals(1, results.size());
 		
 		RuleResult[] resultsArray = new RuleResult[1];
-		Assert.assertTrue(results.toArray(resultsArray)[0].isSatisified());
+		Assert.assertTrue(results.toArray(resultsArray)[0].isSatisfied());
 	}
 
 }

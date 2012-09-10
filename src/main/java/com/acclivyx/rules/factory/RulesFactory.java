@@ -8,7 +8,13 @@ import com.acclivyx.rules.args.RuleArgs;
 import com.acclivyx.rules.args.RuleIntegerArgs;
 import com.acclivyx.rules.exceptions.RuleArgsInvalid;
 /**
- * Simple factory to produce required classes
+ * Simple factory to produce required classes.
+ * Would rather use Spring or Guice - but this
+ * carries the mail for now. 
+ * 
+ * The value of having the Factory is more apparent
+ * when doing the test classes as the methods can 
+ * be mocked out. 
  * 
  * @author Barton
  *

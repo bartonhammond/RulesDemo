@@ -37,7 +37,7 @@ public class RuleIntegerArgs implements RuleArgs{
 			try {
 				args.add(Integer.parseInt(arg));
 			} catch (NumberFormatException e) {
-				throw new RuleArgsInvalid("Please correct input.  This value (: " + arg + ") should be integer number.");
+				throw new RuleArgsInvalid("Please correct input.  This value ( " + arg + ") should be integer number.");
 			}
 		}
 	}

@@ -15,15 +15,28 @@ body, input {
 	font-size: 22px;
 }
 	
+#footer {
+color: #A6A6A6;
+font-size: 12px;
+text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+text-align: center;
+}
+}
 .datatable {margin-bottom:5px;border:1px solid #eee;border-collapse:collapse;width:400px;max-width:100%;font-family:Calibri}
 .datatable th {padding:3px;border:1px solid #888;height:30px;background-color:#B2D487;text-align:center;vertical-align:middle;color:#444444}
 .datatable tr {border:1px solid #888}
 .datatable tr.odd {background-color:#eee}
 .datatable td {padding:2px;border:1px solid #888}
+
 #content { padding 5px; margin: 5px; text-align: center}
 
 fieldset { width: 300px; padding: 5px; margin-bottom: 0px; }
 legend { font-weight: bold; }
+
+body {
+	margin:50px 0px; padding:0px;
+	text-align:center;
+}
 </style>
 
 <body>
@@ -35,8 +48,7 @@ legend { font-weight: bold; }
 </div>
 
 <div id="content">
-  
-  
+   
   <fieldset>
   	<legend>Input data</legend>
     <@s.form action="runRule" method="post">
@@ -58,5 +70,9 @@ legend { font-weight: bold; }
   </table>
 
 </div>  
+<div id="footer">
+<p>Web design by <a href="http://viralpatel.net/blogs/">Viral Patel</a>
+</div>
+
 </body>
 </html>  

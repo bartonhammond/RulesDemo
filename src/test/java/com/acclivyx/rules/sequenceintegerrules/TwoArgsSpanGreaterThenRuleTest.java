@@ -29,7 +29,7 @@ public class TwoArgsSpanGreaterThenRuleTest {
 		
 		RuleResult result = sut.process(ria);
 		
-		Assert.assertTrue(result.isSatisified());
+		Assert.assertTrue(result.isSatisfied());
 	}
 	@Test
 	public void twoSequentialNumbersLess() throws Exception {
@@ -39,7 +39,7 @@ public class TwoArgsSpanGreaterThenRuleTest {
 		
 		RuleResult result = sut.process(ria);
 		
-		Assert.assertFalse(result.isSatisified());
+		Assert.assertFalse(result.isSatisfied());
 	}
 	@Test
 	public void twoMaxInts() throws Exception {
@@ -50,7 +50,7 @@ public class TwoArgsSpanGreaterThenRuleTest {
 		
 		RuleResult result = sut.process(ria);
 		
-		Assert.assertTrue(result.isSatisified());
+		Assert.assertTrue(result.isSatisfied());
 	}
 
 }

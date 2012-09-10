@@ -66,7 +66,7 @@ public class RuleRunnerDemoTest {
 			String name) throws Exception {
 		for(RuleResult result: results) {
 			if (result.getName().equals(name)) {
-				return result.isSatisified();
+				return result.isSatisfied();
 			}
 		}
 		throw new Exception("rule: " + name + " not found");

@@ -47,7 +47,7 @@ public class RuleAction extends ActionSupport {
 	}
 	/**
 	 * Called by framework to validate form entry fields before
-	 * running runRule
+	 * running Rule
 	 */
 	public void validate() {
 	
@@ -59,6 +59,10 @@ public class RuleAction extends ActionSupport {
 		}
 		
 	}
+	/**
+	 * Results of processing the rules 
+	 * @return
+	 */
 	public Collection<RuleResult> getRuleResults() {
 		return results;
 	}
@@ -66,7 +70,10 @@ public class RuleAction extends ActionSupport {
 	public void setRuleResults(Collection<RuleResult> results) {
 		this.results = results;
 	}
-
+	/**
+	 * The data this is modified via the form
+	 * @return
+	 */
 	public Data getData() {
 		return data;
 	}

@@ -2,5 +2,6 @@
 pageEncoding="UTF-8"%>
 
 <%  
-response.sendRedirect("list");
+//due to restEasy in Web.xml, need to have action
+response.sendRedirect("list.action");
 %> 

@@ -30,7 +30,7 @@ public class TwoArgsGreaterThenRuleTest {
 		
 		RuleResult result = sut.process(ria);
 		
-		Assert.assertTrue(result.isSatisified());
+		Assert.assertTrue(result.isSatisfied());
 	}
 	@Test
 	public void noArgGreaterBy() throws RuleArgsInvalid {
@@ -40,7 +40,7 @@ public class TwoArgsGreaterThenRuleTest {
 		
 		RuleResult result = sut.process(ria);
 		
-		Assert.assertFalse(result.isSatisified());
+		Assert.assertFalse(result.isSatisfied());
 	}
 	@Test
 	public void maxInt() throws RuleArgsInvalid {
@@ -51,6 +51,6 @@ public class TwoArgsGreaterThenRuleTest {
 		
 		RuleResult result = sut.process(ria);
 		
-		Assert.assertFalse(result.isSatisified());
+		Assert.assertFalse(result.isSatisfied());
 	}
 }
