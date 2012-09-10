@@ -34,7 +34,7 @@
 
 </div>  
 <div id="footer">
-<p>For info see <a href="http://ibm.com/">Barton Hammond</a>
+<p>For project info see <a href="http://bartonhammond.github.com/RulesDemo/">Rules Demo Project</a>
 </div>
 
 </body>

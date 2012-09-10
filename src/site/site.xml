@@ -1,12 +1,8 @@
 <project xmlns="http://maven.apache.org/DECORATION/1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd"
-   name="SecureLink Rules Demo">
+   name="Rules Demo">
 
   <body>
-  	 <links>
-        <item name="Secure Link" href="http://securelink.com"/>
-
-    </links>
 
     <menu name="Requirements">
     <item name="Docs" href="index.html"/>
@@ -17,8 +13,11 @@
      <menu name="Source">
     	<item name="Code" href="source-repository.html"/>
     </menu>
-    <menu name="Demo">
-       <item name="Rules" href="../RulesDemo"/>
+    <menu name="Online Demo">
+       <item name="Struts2 on Cloud" href="http://rulesdemo.cloudfoundry.com/"/>
+	</menu>
+	<menu name="Mobile App Demo">
+       <item name="Info" href="mobile.html"/>
 	</menu>
    <menu name="Reports">
        <item name="Coverage" href="jacoco/index.html"/>

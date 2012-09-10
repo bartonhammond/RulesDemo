@@ -1,0 +1,27 @@
+ ------
+ Mobile solution
+ ------
+ ------
+
+Mobile information
+
+ I've built a simple mobile app using {{{http://applicationcraft.com}Application Craft}} which 
+ utilizes JQuery Mobile and PhoneGap to build a mobile deployed application. 
+ 
+ It makes JSONP requests to {{{http://rulesdemo.cloudfoundry.com}RulesDemo}} web application's 
+ webservice and displays the results. 
+
+Video
+
+ Here's a video screen capture showing it running on my mobile.  {{{http://www.youtube.com/watch?v=sefUiB-pVj8} Android video}}
+
+Install on Android
+ 
+ {{{https://chart.googleapis.com/chart?chs=200x200&chld=h&cht=qr&chl=http://buddy.applicationcraft.com/service/Resources/a8e4ed28/RulesDemo_71.apk} Android QR code}} 
+ After scanning the QR Code, it will be downloaded by your selected browser.  Then using the Android application "My Files", go to the download direction and install
+ the app.
+
+ {{{http://buddy.applicationcraft.com/service/Resources/a8e4ed28/RulesDemo_71.apk}Download}}  I use Dropbox to install on my Android - just install Drop box on 
+ both your PC and Android and then just copy the "apk" to your Dropbox on the PC and then on the Android, use Dropbox and click the "apk" to install.
+
+
