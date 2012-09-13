@@ -34,7 +34,7 @@ public class TwoArgsSpanGreaterThenRule extends SequenceIntegerRule{
 			first = second;
 			second = iter.next();
 			BigInteger result = BigInteger.valueOf(first);
-			result = result.add(result);
+			result = result.add(BigInteger.valueOf(second));
 			
 			if (result.compareTo(MIN) >= 0) {
 				return new RuleResult(true,this.name);
